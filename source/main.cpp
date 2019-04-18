@@ -166,7 +166,7 @@ static void TraceImage(TraceData& data)
 
     int rayCount = 0;
     // go over the image: each pixel row
-    for (uint32_t y = 0; y < data.screenHeight; ++y)
+    for (uint32_t y = 0; y < (uint32_t)data.screenHeight; ++y)
     {
         // go over the image: each pixel in the row
         uint32_t rngState = y * 9781 + 1;

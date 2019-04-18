@@ -1,4 +1,5 @@
 #include "scene.h"
+#include "compute.h"
 #include <string.h>
 
 
@@ -44,7 +45,8 @@ static bool HitTriangle(const Ray& r, const Triangle& tri, float tMin, float tMa
 // Scene information: just a copy of the input triangles.
 static int s_TriangleCount;
 static Triangle* s_Triangles;
-
+static ComputeEnv computeEnv;
+static CBuffer s_dTriangles;
 
 void InitializeScene(int triangleCount, const Triangle* triangles)
 {
