@@ -200,9 +200,20 @@ static void TraceImage(TraceData& data)
     data.rayCount += rayCount;
 }
 
+#include "compute.h"
+#include <iostream>
 
 int main(int argc, const char** argv)
 {
+    try
+    {
+        ComputeEnv compute;
+        compute.loadProgram("source/device/trace.cl", { "source/device" });
+    }
+    catch (std::runtime_error& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     // initialize timer
     stm_setup();
 
